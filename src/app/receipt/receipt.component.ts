@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Item } from "../item";
 import { ITEMS_A, ITEMS_B, ITEMS_C } from "../mock-items";
 
@@ -10,13 +10,20 @@ export const IMPORT_TAX = 0.05;
   templateUrl: "./receipt.component.html",
   styleUrls: ["./receipt.component.css"]
 })
-export class ReceiptComponent {
-  items = ITEMS_A;
-  //items = ITEMS_B;
-  //items = ITEMS_C;
+export class ReceiptComponent implements OnInit {
+  public itemsList: Array<Item> = [];
+  public salesTaxes: String = "";
+  public totalAmount: String = "";
 
-  taxes = this.getAllTaxes(this.items).toFixed(2);
-  total = (this.getTotal(this.items) + this.getAllTaxes(this.items)).toFixed(2);
+  constructor() {}
+
+  ngOnInit() {
+    this.itemsList = ITEMS_C;
+    this.salesTaxes = this.getAllTaxes(this.itemsList).toFixed(2);
+    this.totalAmount = (
+      this.getTotal(this.itemsList) + this.getAllTaxes(this.itemsList)
+    ).toFixed(2);
+  }
 
   getItemTax(item: Item) {
     return item.isTaxable && item.isImported

@@ -1,14 +1,14 @@
 <h2>Items</h2>
 
 <ul class="receipt">
-  <li *ngFor="let item of items">
+  <li *ngFor="let item of itemsList">
     <span class="count">{{item.count}}</span>
     {{item.isImported ? 'imported ': ''}} {{item.name}}:
     {{this.getItemPrice(item)}}
   </li>
 </ul>
 
-<p>Sales Taxes: {{taxes}} Total: {{total}}</p>
+<p>Sales Taxes: {{salesTaxes}} Total: {{totalAmount}}</p>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
