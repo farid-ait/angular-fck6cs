@@ -1,6 +1,6 @@
 import { Item } from "./item";
 
-export const ITEMS_A: Item[] = [
+export const ITEMS_A: Array<Item> = [
   {
     count: 1,
     name: "book",

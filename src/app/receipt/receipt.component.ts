@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Item } from "../item";
 import { ITEMS_A, ITEMS_B, ITEMS_C } from "../mock-items";
 
@@ -14,6 +14,8 @@ export class ReceiptComponent implements OnInit {
   public itemsList: Array<Item> = [];
   public salesTaxes: String = "";
   public totalAmount: String = "";
+
+  @Input() data: Array<Item>;
 
   constructor() {}
 
