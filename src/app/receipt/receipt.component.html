@@ -1,0 +1,17 @@
+<h2>Items</h2>
+
+<ul class="receipt">
+  <li *ngFor="let item of items">
+    <span class="count">{{item.count}}</span>
+    {{item.isImported ? 'imported ': ''}} {{item.name}}:
+    {{this.getItemPrice(item)}}
+  </li>
+</ul>
+
+<p>Sales Taxes: {{taxes}} Total: {{total}}</p>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
